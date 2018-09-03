@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>系统配置 - 凌智动后台管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="这不仅仅是一个后台管理系统，它基于BT4，超强的自适应，简洁，高效，大方" />
+        <meta content="Mosheng" name="author" />
+
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="/admin/assets/images/favicon.ico">
+        
+        <!-- plugins css-->
+        <link href="/admin/css/vendor/switchery.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/admin/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/admin/css/app.min.css" rel="stylesheet" type="text/css" />
+        
+        <style type="text/css">
+        	.table tbody tr td{
+			      overflow: hidden; 
+			      text-overflow:ellipsis;  
+			      white-space: nowrap; 
+			 }
+        </style>
+
+    </head>
+
+    <body>
+
+        <header id="topnav" th:include="admin/template :: header"></header>
+
+        <div class="wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <table style="table-layout:fixed" class="table table-dark mb-0">
+                                    <thead>
+	                                    <tr>
+	                                        <th>ID</th>
+	                                        <th>标题</th>
+	                                        <th>作者</th>
+	                                        <th>封面</th>
+	                                        <th>日期</th>
+	                                        <th>编辑</th>
+	                                        <th>删除</th>
+	                                    </tr>
+                                    </thead>
+                                    <tbody>
+	                                    <tr th:each="obj:${date }">
+	                                        <th th:text="${obj.id }" scope="row"></th>
+	                                        <td th:text="${obj.articletitile }"></td>
+	                                        <td th:text="${obj.author }"></td>
+	                                        <td><img style="width: 40px;height: 40px;" th:src="${obj.cover}" /></td>
+	                                        <td th:text="${obj.datetime }"></td>
+	                                        <td>
+	                                        	<a th:href="@{/admin/articleedit(id=${obj.id })}" class="btn btn-outline-purple btn-rounded">编辑</a>
+	                                        </td>
+	                                        <td>
+	                                        	<a th:href="@{/admin/articledelete(id=${obj.id })}" class="btn btn-outline-purple btn-rounded">删除</a>
+	                                        </td>
+	                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div> <!-- end card-body -->
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+                <!-- end row -->
+                <div>
+                	<nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" th:if="${PageNumber}>0" th:href="@{/admin/article(page=${PageNumber}-1)}">上一页</a>
+                            </li>
+                            <li class="page-item"><a th:if="${PageNumber}>0" href="/admin/article?page=0" class="page-link">首页</a></li>
+                            <li class="page-item"><a th:href="@{/admin/article?(page=${totalPages})}" class="page-link">尾页</a></li>
+                            <li class="page-item">
+                                <a class="page-link" th:if="${PageNumber}<${totalPages}-1" th:href="@{/admin/article(page=${PageNumber}+1)}">下一页</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div> <!-- end container -->
+        </div>
+        <!-- end wrapper -->
+
+
+        <!-- Footer Start -->
+        <footer class="footer" th:include="admin/template :: footer"></footer>
+        <!-- end Footer -->
+
+
+        <!-- App js -->
+        <script src="/admin/js/vendor.min.js"></script>
+        <script src="/admin/js/app.min.js"></script>
+
+        <!-- Plugins js -->
+        <script src="/admin/js/vendor/switchery.min.js"></script>
+        <script src="/admin/js/vendor/bootstrap-maxlength.min.js"></script>
+        <script src="/admin/js/pages/form-advanced.init.js"></script>
+
+    </body>
+</html>

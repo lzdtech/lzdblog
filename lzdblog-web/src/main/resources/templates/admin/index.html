@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>首页 - 凌智动后台管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="这不仅仅是一个后台管理系统，它基于BT4，超强的自适应，简洁，高效，大方" />
+        <meta content="Mosheng" name="author" />
+
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="/admin/assets/images/favicon.ico">
+        
+        <!-- plugins css-->
+        <link href="/admin/css/vendor/switchery.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/admin/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/admin/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar-->
+        <header id="topnav" th:include="admin/template :: header"></header>
+        <!-- End Navigation Bar-->
+
+
+
+        <!-- Footer Start -->
+        <footer class="footer" th:include="admin/template :: footer"></footer>
+        <!-- end Footer -->
+
+        <!-- Plugins js -->
+        <script src="/admin/js/vendor/jquery.sparkline.min.js"></script>
+        <script src="/admin/js/vendor/jquery.knob.min.js"></script>
+
+        <script src="/admin/js/pages/dashboard.init.js"></script>
+
+    </body>
+</html>

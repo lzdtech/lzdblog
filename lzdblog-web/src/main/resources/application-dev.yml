@@ -1,0 +1,33 @@
+server:
+  #  配置启动端口
+  port: 80
+
+spring:
+  #  配置数据库
+  datasource:
+    url: jdbc:mysql://127.0.0.1/lzdblog?useSSL=false&useUnicode=true&characterEncoding=UTF8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: OneDay1228Only
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      #      配置位update则不用每次启动都创建新表
+      ddl-auto: update
+      #打印SQL语句
+    show-sql: true
+    database: MYSQL
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  #thymeleaf配置
+  thymeleaf:
+    #    开发时关闭缓存，否则无法实时看到页面
+    cache: true
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html; charset=utf-8
+  http:
+    encoding:
+      charset: UTF-8

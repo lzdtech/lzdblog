@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>系统配置 - 凌智动后台管理系统</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta content="这不仅仅是一个后台管理系统，它基于BT4，超强的自适应，简洁，高效，大方" />
+        <meta content="Mosheng" name="author" />
+
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="/admin/assets/images/favicon.ico">
+        
+        <!-- plugins css-->
+        <link href="/admin/css/vendor/switchery.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- App css -->
+        <link href="/admin/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/admin/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="/admin/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <header id="topnav" th:include="admin/template :: header"></header>
+
+        <div class="wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="header-title mb-3">文章编辑</h4>
+
+                                <form th:action="@{/admin/update }" th:object="${byId }" method="POST" class="needs-validation">
+                                <input type="hidden" name="id" th:value="*{id }" />
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltip01">文章标题：</label>
+                                        <input type="text" class="form-control" id="validationTooltip01" th:value="*{articletitile}" name="articletitile"  required>
+                                        <div class="valid-tooltip">
+                                            看起来不错!
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            请输入标题。
+                                        </div>
+                                    </div>
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltip02">文章日期</label>
+                                            <input type="date" name="datetime" th:value="*{datetime}" class="form-control" id="birthdatepicker" >
+                                        <div class="valid-tooltip">
+                                            看起来不错！
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                            请输入日期。
+                                        </div>
+                                    </div>
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltipUsername">文章作者</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="validationTooltipUsernamePrepend">
+													@
+												</span>
+                                            </div>
+                                            <input type="text" name="author" th:value="*{author}"  class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend"
+                                                required>
+                                            <div class="invalid-tooltip">
+                                                请选择一个唯一且有效的作者。
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltip03">文章封面</label>
+                                        <input type="text" name="cover" th:value="*{cover}" class="form-control"  id="validationTooltip03" placeholder="keyword" required>
+                                        <div class="invalid-tooltip">
+                                            请提供一个有效的封面URL连接。
+                                        </div>
+                                    </div>
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltip03">文章背景图片</label>
+                                        <input type="text" name="articlebg" th:value="*{articlebg}" class="form-control"  id="validationTooltip03" placeholder="keyword" required>
+                                        <div class="invalid-tooltip">
+                                            请提供一个有效的背景图片URL连接。
+                                        </div>
+                                    </div>
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltip04">文章简介</label>
+                                        <input type="text" name="articlebrief" th:value="*{articlebrief}" class="form-control"  id="validationTooltip04" placeholder="describe" required>
+                                        <div class="invalid-tooltip">
+                                            请提供有效的简介。
+                                        </div>
+                                    </div>
+                                    <div class="form-group position-relative mb-3">
+                                        <label for="validationTooltip05">文章内容</label>
+                                        <textarea class="form-control" name="articlecontent" th:text="*{articlecontent}" rows="5"></textarea>
+                                        <div class="invalid-tooltip">
+                                            请提供有效的内容。
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">提交表单</button>
+                                </form>
+                                
+                            </div> <!-- end card-body-->
+                        </div> <!-- end card-->
+                    </div> <!-- end col-->
+                </div>
+                <!-- end row -->
+                
+            </div> <!-- end container -->
+        </div>
+        <!-- end wrapper -->
+
+
+        <!-- Footer Start -->
+        <footer class="footer" th:include="admin/template :: footer"></footer>
+        <!-- end Footer -->
+
+
+        <!-- App js -->
+        <script src="/admin/js/vendor.min.js"></script>
+        <script src="/admin/js/app.min.js"></script>
+
+        <!-- Plugins js -->
+        <script src="/admin/js/vendor/switchery.min.js"></script>
+        <script src="/admin/js/vendor/bootstrap-maxlength.min.js"></script>
+        <script src="/admin/js/pages/form-advanced.init.js"></script>
+
+    </body>
+</html>
